@@ -1,0 +1,32 @@
+<body>
+
+<div id="title">
+  <a href="http://tinypic.com?ref=23mjbl" target="_blank"><img src="http://i44.tinypic.com/23mjbl.png" border="0" alt="Image and video hosting by TinyPic"></a>
+</div>
+
+<div id="content-1">
+  <h3 id="instagram_header">Instagram</h3>
+  <% @instagrams.each do |instagram| %>
+      <%= link_to image_tag(instagram.images.thumbnail.url), instagram.link %>
+  <% end %>
+</div>
+
+<div id="content-2">
+ <div id="content2-1">
+    <h3 id="news_header">News</h3>
+    <% @googlers.each do |googler| %>
+        <%= link_to googler.title, googler.uri %> </br>
+        <%= googler.content %> </br>
+    <% end %>
+ </div>
+ <div id= "content2-2">
+  <h3 id="tweet_header">Tweets</h3>
+    <% @tweets.each do |tweet| %>
+      <div id="twitter_image"><%= link_to image_tag(tweet.user.profile_image_url), "http://twitter.com/#{tweet.user.screen_name}" %></div>
+       <div id="tweet_text"><%= tweet.text %></div> </br>
+    <% end %>
+  </div>
+</div>
+
+</body>
+
